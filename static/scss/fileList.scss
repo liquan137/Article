@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/*
+ * author: 小小游 --- allen
+ * date: 2019.07.30
+ * lastUpdateDate: 2019.08.06
+ * description: sass是一种预编译CSS的快捷工具，能迅速提高我们的开发效率，节省时间和成本等等.
+ */
+
+@import './mobile_reset',
+        './utils';
+
+/** 列表展示 start */
+#fileList {
+    .listContent {
+        position: relative;
+        dl {
+            width: 100%;
+            padding: r_750(18);
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background-color: #fff;
+            dt {
+                float: left;
+                a {
+                    float: left;
+                    width: r_750(152);
+                    img {
+                        width: 100%;
+                        height: r_750(152);
+                    }
+                }
+            }
+
+            dd {
+                float: left;
+                width: r_750(562);
+                height: r_750(152);
+                background-color: #fff;
+                font-weight: normal;
+                font-size: r_750(30);
+                color: #333;
+                padding-left: r_750(20);
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                textarea {
+                    float: left;
+                    border: 0 none;
+                    width: r_750(522);
+                    height: r_750(152);
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .btn {
+            a {
+                position: absolute;
+                right: r_750(18);
+                width: r_750(30);
+                height: r_750(30);
+                background: url(../images/del.png) no-repeat;
+                background-size: r_750(30) r_750(30);
+                text-indent: -999999em;
+                &:first-of-type {
+                    top: r_750(22);
+                }
+
+                &:last-of-type {
+                    width: r_750(28);
+                    height: r_750(19);
+                    bottom: r_750(22);
+                    background: url(../images/drag.png) no-repeat;
+                    background-size: r_750(28) r_750(19);
+                }
+            }
+        }
+    }
+}
+/** 列表展示 end */

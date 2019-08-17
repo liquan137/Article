@@ -1,0 +1,388 @@
+@charset "UTF-8";
+/**
+ * author: 小小游 --- allen
+ * date: 2016.07.29
+ * lastUpdateDate: 2019.08.05
+ * description: 样式重置、清除浮动、添加浮动、公用样式
+*/
+
+$r: 1 / 16 / (750 / 320);
+
+/**
+ * 定义自定义字体 平方黑体 
+ */
+@font-face {
+    font-family: 'pfht'; 
+    src: url('../font/PingFangSC-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**
+	样式重置 start
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+input,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+select {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: pfht;
+}
+
+body {
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+    font-family: pfht;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+b,
+strong {
+    font-weight: normal;
+}
+
+img {
+    border: 0 none;
+    vertical-align: top;
+    max-width: 100%;
+    -webkit-touch-callout: none;
+}
+
+a {
+    -webkit-touch-callout: none;
+    text-decoration: none;
+}
+
+a:active {
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+    outline: none;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+textarea:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+a,
+button,
+input {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+input[type='submit'],
+button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    border: 0 none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+
+/**
+	样式重置 end
+*/
+
+
+/**
+	清浮动样式 start
+*/
+
+.clearFix:before,
+.clearFix:after {
+    display: table;
+    content: '';
+}
+
+.clearFix:after {
+    clear: both;
+}
+
+.clearFix {
+    *zoom: 1;
+}
+
+
+/**
+	清浮动样式 end
+*/
+
+
+/**
+	添加浮动样式 start
+*/
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/**
+	添加浮动样式 end
+*/
+
+
+/**
+	公用样式 start
+*/
+
+.um-vp {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+}
+
+
+/*定义body的内边距padding，外边距margin的大小以及文字大小可以调整，超过body宽度的部分隐藏*/
+
+.ub {
+    display: -webkit-box!important;
+    display: box!important;
+    height: auto;
+}
+
+
+/*元素采用弹性box布局*/
+
+.ub-ver {
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+}
+
+.ub-f1 {
+    position: relative;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+}
+
+
+/*子元素占用区域份数*/
+
+.ub-f2 {
+    position: relative;
+    -webkit-box-flex: 2;
+    box-flex: 2;
+}
+
+.ub-f3 {
+    position: relative;
+    -webkit-box-flex: 3;
+    box-flex: 3;
+}
+
+.ub-f4 {
+    position: relative;
+    -webkit-box-flex: 4;
+    box-flex: 4;
+}
+
+.ub-pc {
+    -webkit-box-pack: center;
+}
+
+
+/*子元素水平居中对齐*/
+
+.ub-ac {
+    -webkit-box-align: center;
+}
+
+
+/*子元素垂直居中对齐*/
+
+.tx-c {
+    text-align: center;
+}
+
+.tx-l {
+    text-align: left;
+}
+
+.tx-r {
+    text-align: right;
+}
+
+
+/*按钮边框样式*/
+
+@mixin border-style($border, $background-color, $border-radius, $width, $height) {
+    border: $border;
+    background-color: $background-color;
+    -moz-border-radius: $border-radius;
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
+    text-align: center;
+    width: $width;
+    height: $height;
+    line-height: $height;
+    &:hover {
+        background-color: darken($background-color, 10%);
+    }
+}
+
+
+/*输入框、下拉框、文本域样式 APP*/
+
+@mixin input-style2($border, $background-color, $border-radius, $width, $height) {
+    border: $border;
+    background-color: $background-color;
+    -moz-border-radius: $border-radius;
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
+    width: $width;
+    height: $height;
+    line-height: $height;
+    padding: 0 10em * $r;
+}
+
+
+/**
+	公用样式 end
+*/

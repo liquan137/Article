@@ -1,0 +1,137 @@
+@charset "UTF-8";
+/*
+ * author: 小小游 --- allen
+ * date: 2019.07.30
+ * lastUpdateDate: 2019.08.08
+ * description: sass是一种预编译CSS的快捷工具，能迅速提高我们的开发效率，节省时间和成本等等.
+ */
+
+@import './mobile_reset',
+        './utils';
+
+#selectFile {
+    /** 添加图片 / 文字 / 视频区域 start */
+    .addContent {
+        button {
+            display: block;
+            width: 100%;
+            height: r_750(48);
+            background: url(../images/add_something.png) no-repeat center top;
+            background-size: r_750(48) r_750(48);
+            text-indent: -999999em;
+            outline: none;
+            text-align: center;
+            margin: r_750(28) 0;
+        }
+
+        ul {
+            width: r_750(378);
+            background-color: #fff;
+            text-align: center;
+            margin: r_750(40) auto;
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                width: 0;
+                height: 0;
+                border-right: r_750(24) solid transparent;
+                border-left: r_750(24) solid transparent;
+                border-bottom: r_750(24) solid #fff;
+                text-indent: -999999em;
+                margin: r_750(-24) 0 0 r_750(-24);
+            }
+
+            li {
+                float: left;
+                position: relative;
+                z-index: 3;
+                width: r_750(126);
+                padding: r_750(36) 0;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                a {
+                    float: left;
+                    width: r_750(126);
+                    font-weight: normal;
+                    font-size: r_750(24);
+                    color: #323232;
+                    padding-top: r_750(50);
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                }
+
+                &:nth-of-type(1) {
+                    a {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: r_750(41);
+                            top: r_750(8);
+                            width: r_750(41);
+                            height: r_750(72);
+                            background: url(../images/edit_pic.png) no-repeat center r_750(36);
+                            background-size: r_750(41) r_750(36);
+                        }
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    a {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: r_750(42);
+                            top: r_750(3);
+                            width: r_750(36);
+                            height: r_750(78);
+                            background: url(../images/edit_text.png) no-repeat center r_750(36);
+                            background-size: r_750(36) r_750(42);
+                        }
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    a {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: r_750(41);
+                            top: r_750(5);
+                            width: r_750(40);
+                            height: r_750(76);
+                            background: url(../images/edit_video.png) no-repeat  center r_750(36);
+                            background-size: r_750(40) r_750(40);
+                        }
+                    }
+                }
+
+                &:first-of-type {
+                    /** 覆盖vantUI的样式 start */
+                    .van-uploader {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 2;
+                        width: r_750(126);
+                        .van-uploader__wrapper {
+                            .van-uploader__upload {
+                                width: r_750(126);
+                                margin: 0;
+                                border: 0 none;
+                                background-color: transparent;
+                                i {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    /** 覆盖vantUI的样式 end */
+                }
+            }
+        }
+    }
+    /** 添加图片 / 文字 / 视频区域 end */
+}

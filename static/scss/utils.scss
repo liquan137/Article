@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/*
+ * author: 小小游 --- allen
+ * date: 2016.05.28
+ * lastUpdateDate: 2019.08.05
+ * description: 针对不同设计稿来将pxToRem.
+ *             以下列出了常用的三种设计稿尺寸，分别是640px、720px、750px的设计稿尺寸.
+ * $r_640、$r_720、$r_750、$r_1080
+ */
+
+$r_640: 1 / 16 / (640 / 320);
+$r_720: 1 / 16 / (720 / 320);
+$r_750: 1 / 16 / (750 / 320);
+$r_1080: 1 / 16 / (1080 / 320);
+
+/*
+ * 针对设计稿是640px的将px-->rem布局  start
+ */
+@function r_640 ($px) {
+    @return $px * $r_640 + rem;
+}
+/*
+ * 针对设计稿是640px的将px-->rem布局  end
+ */
+
+
+/*
+ * 针对设计稿是720px的将px-->rem布局  start
+ */
+@function r_720 ($px) {
+    @return $px * $r_720 + rem;
+}
+/*
+ * 针对设计稿是720px的将px-->rem布局  end
+ */
+
+
+/*
+ * 针对设计稿是750px的将px-->rem布局  start
+ */
+@function r_750 ($px) {
+    @return $px * $r_750 + rem;
+}
+/*
+ * 针对设计稿是750px的将px-->rem布局  end
+ */
+
+/*
+ * 针对设计稿是1080px的将px-->rem布局  start
+ */
+@function r_1080 ($px) {
+    @return $px * $r_1080 + rem;
+}
+/*
+ * 针对设计稿是1080px的将px-->rem布局  end
+ */

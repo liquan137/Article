@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/*
+ * author: 小小游 --- allen
+ * date: 2019.07.30
+ * lastUpdateDate: 2019.08.14
+ * description: sass是一种预编译CSS的快捷工具，能迅速提高我们的开发效率，节省时间和成本等等.
+ */
+
+@import './mobile_reset',
+        './utils';
+
+body {
+    background-color: #fff;
+}
+
+#preview {
+    /** 头部区域内容 start */
+    .myHeader {
+        width: 100%;
+        height: r_750(88);
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        .center {
+            width: r_750(690);
+            height: r_750(88);
+            margin: 0 auto;
+            em {
+                width: r_750(16);
+                height: r_750(59);
+                background: url(../images/return_back.png) no-repeat left r_750(29);
+                background-size: r_750(16) r_750(30);
+                text-indent: -999999em;
+            }
+
+            h1 {
+                font-weight: normal;
+                font-size: r_750(34);
+                line-height: r_750(88);
+                color: #000;
+                text-align: center;
+                margin-left: r_750(296);
+            }
+
+            a {
+                width: r_750(134);
+                height: r_750(56);
+                font-weight: normal;
+                font-size: r_750(30);
+                line-height: r_750(56);
+                color: #fff;
+                background-color: #2e9cfa;
+                border-radius: r_750(50);
+                margin-top: r_750(16);
+                text-align: center;
+            }
+        }
+    }
+    /** 头部区域内容 end */
+
+    /** 核心区域内容 start */
+    .myContent {
+        width: r_750(690);
+        margin: 0 auto;
+        .articleH {
+            margin-top: r_750(60);
+            h1 {
+                font-weight: normal;
+                font-size: r_750(40);
+                color: #000;
+            }
+
+            .myCoreH {
+                margin-top: r_750(60);
+                .left {
+                    float: left;
+                    width: r_750(60);
+                    a {
+                        float: left;
+                        img {
+                            float: left;
+                            width: 100%;
+                            height: r_750(60);
+                        }
+                    }
+                }
+
+                .right {
+                    float: left;
+                    margin-left: r_750(28);
+                    h2 {
+                        display: block;
+                        font-weight: normal;
+                        font-size: r_750(30);
+                        line-height: r_750(18);
+                        color: #000;
+                    }
+
+                    .details_r {
+                        float: left;
+                        display: block;
+                        strong {
+                            font-weight: normal;
+                            font-size: r_750(22);
+                            color: #919191;
+                            &:last-of-type {
+                                margin-left: r_750(10);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .articleC {
+            margin-top: r_750(56);
+            .articleCont {
+                margin-bottom: r_750(46);
+                p {
+                    font-weight: normal;
+                    font-size: r_750(30);
+                    line-height: r_750(52);
+                    color: #000;
+                    margin-bottom: r_750(24);
+                }
+
+                img {
+                    display: block;
+                    max-width: 100%;
+                    width: r_750(690);
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+    /** 核心区域内容 end */
+}

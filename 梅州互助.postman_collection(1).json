@@ -1,0 +1,4653 @@
+{
+	"info": {
+		"_postman_id": "eb68af54-6483-4425-a037-4b58abd9af83",
+		"name": "梅州互助",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "客户端接口",
+			"item": [
+				{
+					"name": "初始化",
+					"item": [
+						{
+							"name": "获取初始化参数",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/init",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"init"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "令牌",
+					"item": [
+						{
+							"name": " 获取用户令牌（令牌密码）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\": \"mobile_auto_password\",\n    \"mobile\": \"\",\n    \"auto_password\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/token",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取用户令牌（密码）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\": \"mobile_password\",\n    \"mobile\": \"\",\n    \"password\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/token",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取用户令牌（手机验证码）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\": \"mobile_validate_code\",\n    \"mobile\": \"\",\n    \"validate_code\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/token",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "销毁令牌",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/token?token=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"token"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "【必填】用户令牌"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "用户",
+					"item": [
+						{
+							"name": "用户注册（手机验证码）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\": \"mobile_validate_code\",\n    \"mobile\": \"\",\n    \"password\": \"\",\n    \"validate_code\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改用户基本信息",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"type": "text",
+										"description": "【必填】用户令牌"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nick_name\": \"\",\n    \"sex\": \"\",\n    \"introduction\": \"\",\n    \"birthday\": \"\",\n    \"location\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改用户头像",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"head_image\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user/head_image",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user",
+										"head_image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改密码（手机验证码）",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\": \"mobile_validate_code\",\n    \"mobile\": \"\",\n    \"password\": \"\",\n    \"validate_code\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user/password",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改密码（令牌）",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mode\": \"token\",\r\n    \"old_password\": \"\",\r\n    \"password\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user/password",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改绑定手机号码",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\",\n    \"validate_code\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user/mobile",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user",
+										"mobile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用户信息（当前用户）",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用户信息（其他用户）",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【选填】用户令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/user/:user_id?is_show_follow&is_show_fans",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"user",
+										":user_id"
+									],
+									"query": [
+										{
+											"key": "is_show_follow",
+											"value": null,
+											"description": "【选填】是否显示关注 0：不显示 1： 显示"
+										},
+										{
+											"key": "is_show_fans",
+											"value": null,
+											"description": "【选填】是否显示粉丝 0：不显示 1： 显示"
+										}
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "举报",
+					"item": [
+						{
+							"name": "发起举报",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "【必填】用户令牌",
+										"key": "token",
+										"type": "text",
+										"value": ""
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"\",\n    \"table_id\": \"\",\n    \"reason\": \"\",\n    \"image\": []\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/report",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"report"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "关注",
+					"item": [
+						{
+							"name": "关注列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/follow?page=1&page_size=10&user_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"follow"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "user_id",
+											"value": "",
+											"description": "【必填】用户ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "关注用户",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/follow",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"follow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取消关注用户",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/follow",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"follow"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "粉丝",
+					"item": [
+						{
+							"name": "粉丝列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/fans?page=1&page_size=10&user_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"fans"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "user_id",
+											"value": "\n",
+											"description": "【必填】用户ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "移除粉丝",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/fans",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"fans"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "商家",
+					"item": [
+						{
+							"name": "商家信息",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/business/:business_id",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": "",
+											"description": "【必填】商家ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "商家列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/business?page=1&page_size=10&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id name create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "申请入驻",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"logo\": \"\",\n    \"address\": \"\",\n    \"detailed_address\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"director_name\": \"\",\n    \"director_mobile\": \"\",\n    \"legal_name\": \"\",\n    \"legal_id\": \"\",\n    \"legal_id_front\": \"\",\n    \"legal_id_back\": \"\",\n    \"business_license\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/business",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改商家信息",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"address\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"director_name\": \"\",\n    \"director_mobile\": \"\",\n    \"logo\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/business",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取商家店铺环境",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/business/env?business_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business",
+										"env"
+									],
+									"query": [
+										{
+											"key": "business_id",
+											"value": "",
+											"description": "【必填】商家ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "添加商家店铺环境",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"envs\":[\r\n\t\t{\r\n\t\t\t\"image_url\":\"\"\r\n\t\t}\r\n\t]\r\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/business/env",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business",
+										"env"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除店铺环境",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"business_envs\":[\r\n\t\t{\r\n\t\t\t\"business_env_id\":\"\"\r\n\t\t}\r\n\t]\r\n}"
+								},
+								"url": {
+									"raw": "api.cn/api/client/v1/business/env",
+									"host": [
+										"api",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"business",
+										"env"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "互助",
+					"item": [
+						{
+							"name": "分类标签列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/type",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "互助列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【选填】用户令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments?page=1&page_size=10&moments_type_id&is_show_like=&status&audit_status&is_delete&is_top&moments_id&user_id&nick_name&is_follow&content&sort=&is_business=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "moments_type_id",
+											"value": null,
+											"description": "【选填】互助分类ID"
+										},
+										{
+											"key": "is_show_like",
+											"value": "",
+											"description": "【选填】是否显示点赞 0：不显示 1：显示"
+										},
+										{
+											"key": "status",
+											"value": null,
+											"description": "【选填】状态 不填：全部 0：未完成 1：已完成 2：用户删除"
+										},
+										{
+											"key": "audit_status",
+											"value": null,
+											"description": "【选填】审核状态 不填：全部 0：未审核 1：审核通过 2：审核不通过"
+										},
+										{
+											"key": "is_delete",
+											"value": null,
+											"description": "【选填】状态 不填：全部 0：启用 1：禁用"
+										},
+										{
+											"key": "is_top",
+											"value": null,
+											"description": "【选填】官方置顶 不填：全部 0：非官方置顶 1： 官方置顶"
+										},
+										{
+											"key": "moments_id",
+											"value": null,
+											"description": "【选填】互助ID（完全匹配）"
+										},
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "【选填】用户ID（完全匹配）"
+										},
+										{
+											"key": "nick_name",
+											"value": null,
+											"description": "【选填】用户昵称（模糊匹配）"
+										},
+										{
+											"key": "is_follow",
+											"value": null,
+											"description": "【选填】关注用户"
+										},
+										{
+											"key": "content",
+											"value": null,
+											"description": "【选填】内容（模糊匹配）"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id user_id comment_count like_count top_score create_time"
+										},
+										{
+											"key": "is_business",
+											"value": "",
+											"description": "【选填】商家促销"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "发布互助",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"\",\n    \"moments_type_id\": \"\",\n    \"content\": \"\",\n    \"image\": [\n        {\n            \"url\": \"\"\n        }\n    ],\n    \"video\": [\n        {\n            \"image_url\": \"\",\n            \"video_url\": \"\"\n        }\n    ],\n    \"is_business\": \"1\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "增加置顶积分",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\",\n    \"top_score\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/top_score",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"top_score"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "完成互助",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除互助",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "点赞用户列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/like?page=1&page_size=10&moments_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"like"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "moments_id",
+											"value": "",
+											"description": "【必填】互助ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "点赞",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取消点赞",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "评论列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【选填】用户令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/comment?page=1&page_size=10&moments_id=&moments_comment_id&is_show_like=&is_infinite&user_id&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"comment"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "moments_id",
+											"value": "",
+											"description": "【必填】互助ID"
+										},
+										{
+											"key": "moments_comment_id",
+											"value": null,
+											"description": "【选填】互助评论ID"
+										},
+										{
+											"key": "is_show_like",
+											"value": "",
+											"description": "【选填】是否显示点赞 0：不显示 1：显示"
+										},
+										{
+											"key": "is_infinite",
+											"value": null,
+											"description": "【选填】是否显示无限层级 0：否 1：是"
+										},
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "【选填】用户ID"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 默认：desc,create_time 【格式】排序方式,字段名称 【支持字段】id user_id create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "评论",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\",\n    \"content\": \"\",\n    \"moments_comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/comment",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"comment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除评论",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/comment",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"comment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "评论点赞列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/comment/like?page=1&page_size=10&moments_comment_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"comment",
+										"like"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "moments_comment_id",
+											"value": "",
+											"description": "【必填】评论ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "评论点赞",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/comment/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"comment",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取消评论点赞",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/moments/comment/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"moments",
+										"comment",
+										"like"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "好物",
+					"item": [
+						{
+							"name": "好物列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【选填】用户令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press?page=1&page_size=10&is_show_like=&sort&status&good_advice_press_id&user_id&nick_name&is_follow&content&is_activity=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "is_show_like",
+											"value": "",
+											"description": "【选填】是否显示点赞 0：不显示 1：显示"
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id user_id comment_count like_count top_score create_time"
+										},
+										{
+											"key": "status",
+											"value": null,
+											"description": "【选填】状态 不填：全部 0：启用 1：删除/禁用 2：官方置顶"
+										},
+										{
+											"key": "good_advice_press_id",
+											"value": null,
+											"description": "【选填】好物ID（完全匹配）"
+										},
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "【选填】用户ID（完全匹配）"
+										},
+										{
+											"key": "nick_name",
+											"value": null,
+											"description": "【选填】用户昵称（模糊匹配）"
+										},
+										{
+											"key": "is_follow",
+											"value": null,
+											"description": "【选填】关注用户"
+										},
+										{
+											"key": "content",
+											"value": null,
+											"description": "【选填】内容（模糊匹配）"
+										},
+										{
+											"key": "is_activity",
+											"value": "",
+											"description": "【选填】商家活动"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "好物详情",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/:good_advice_press_id",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										":good_advice_press_id"
+									],
+									"variable": [
+										{
+											"key": "good_advice_press_id",
+											"value": "",
+											"description": "【必填】好物ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "发布好物",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"\",\n    \"cover\": \"\",\n    \"abstract\": \"\",\n    \"content\": \"\",\n    \"is_activity\": \"\",\n    \"start_date\": \"\",\n    \"end_date\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "增加置顶积分",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\",\n    \"top_score\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除好物",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "点赞",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取消点赞",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "评论",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\",\n    \"content\": \"\",\n    \"comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/comment",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										"comment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除评论",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/comment",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										"comment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "点赞评论",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/comment/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										"comment",
+										"like"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "取消点赞评论",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】用户令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/good_advice_press/comment/like",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"good_advice_press",
+										"comment",
+										"like"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "活动",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "Banner列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/client/v1/banner?group=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"client",
+										"v1",
+										"banner"
+									],
+									"query": [
+										{
+											"key": "group",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "后台接口",
+			"item": [
+				{
+					"name": "令牌",
+					"item": [
+						{
+							"name": "获取管理员令牌（密码）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\",\n    \"password\": \"\",\n    \"mode\": \"mobile_password\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/token",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取管理员令牌（手机验证码）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\",\n    \"validate_code\": \"\",\n    \"mode\": \"mobile_validate_code\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/token",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "销毁令牌",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"type": "text",
+										"description": "【必填】管理员令牌"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/token",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "管理员",
+					"item": [
+						{
+							"name": "管理员忘记密码",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\",\n    \"validate_code\": \"\",\n    \"password\": \"\",\n    \"mode\": \"mobile_validate_code\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin/password",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "当前登录管理员修改密码",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"\",\n    \"password\": \"\",\n    \"mode\": \"token\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin/password",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "当前登录管理员信息",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin/info",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "管理员列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin?page=1&page_size=10&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id mobile create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建管理员",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\",\n    \"password\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改客服信息",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"admin_id\": \"\",\n    \"is_customer_service\": \"\",\n    \"customer_service_name\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin/customer_service",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin",
+										"customer_service"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "启用/禁用 管理员",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除管理员",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/admin",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "角色",
+					"item": [
+						{
+							"name": "角色列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role?page=1&page_size=10&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 \n【格式】排序方式,字段名称 \n【支持字段】id name parent_id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建角色",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"parent_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改角色",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"parent_id\": \"\",\n    \"role_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除角色",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"role_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "所有角色选项",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role/list",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "管理员分配的角色",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role/admin?admin_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "admin_id",
+											"value": "",
+											"description": "【必填】管理员ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "分配管理员角色",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"admin_id\": \"\",\n    \"roles\": [\n        {\n            \"role_id\": \"\"\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/role/admin",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"role",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "权限",
+					"item": [
+						{
+							"name": "权限列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission?page=1&page_size=10&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 \n【格式】排序方式,字段名称 \n【支持字段】id name path method"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建权限",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"path\": \"\",\n    \"method\": \"\",\n    \"description\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改权限",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"path\": \"\",\n    \"method\": \"\",\n    \"description\": \"\",\n    \"permission_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除权限",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"permission_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "所有权限选项",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission/list",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "角色分配的权限",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission/role?role_id=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission",
+										"role"
+									],
+									"query": [
+										{
+											"key": "role_id",
+											"value": "",
+											"description": "【必填】角色ID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "分配角色权限",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role_id\": \"\",\r\n    \"permissions\": [\r\n        {\r\n            \"permission_id\": \"\"\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/permission/role",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"permission",
+										"role"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "配置",
+					"item": [
+						{
+							"name": "配置项值",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/setting/:code",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"setting",
+										":code"
+									],
+									"variable": [
+										{
+											"key": "code",
+											"value": "",
+											"description": "【必填】选项代码"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "配置列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/setting?page=1&page_size=10&group=&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"setting"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "group",
+											"value": "",
+											"description": "【必填】分组"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 \n【格式】排序方式,字段名称 \n【支持字段】id name"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改配置",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"setting_id\": \"\",\n    \"value\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/setting",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"setting"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "用户",
+					"item": [
+						{
+							"name": "用户列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/user?page=1&page_size=10&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"user"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id mobile create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "启用/禁用 用户",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/user/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"user",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "商家",
+					"item": [
+						{
+							"name": "审核入驻申请",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"\",\n    \"status\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/business/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"business",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "启用/停用 商家",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"business_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/business/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"business",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "商家列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/business?page=1&page_size=10&sort=",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"business"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "【选填】排序规则 默认desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id name create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "互助",
+					"item": [
+						{
+							"name": "分类标签列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/type",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建分类标签",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"sort\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/type",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改分类标签",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_type_id\": \"\",\n    \"name\": \"\",\n    \"sort\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/type",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除分类标签",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_type_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/type",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "互助列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments?page=1&page_size=10&moments_type_id=&is_show_like&status&audit_status&is_delete&is_top=&moments_id&user_id&nick_name&is_follow&content&sort",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "moments_type_id",
+											"value": "",
+											"description": "【选填】互助分类ID"
+										},
+										{
+											"key": "is_show_like",
+											"value": null,
+											"description": "【选填】是否显示点赞 0：不显示 1：显示"
+										},
+										{
+											"key": "status",
+											"value": null,
+											"description": "【选填】状态 不填：全部 0：未完成 1：已完成 2：用户删除"
+										},
+										{
+											"key": "audit_status",
+											"value": null,
+											"description": "【选填】审核状态 不填：全部 0：未审核 1：审核通过 2：审核不通过"
+										},
+										{
+											"key": "is_delete",
+											"value": null,
+											"description": "【选填】状态 不填：全部 0：启用 1：禁用"
+										},
+										{
+											"key": "is_top",
+											"value": "",
+											"description": "【选填】官方置顶 不填：全部 0：非官方置顶 1： 官方置顶"
+										},
+										{
+											"key": "moments_id",
+											"value": null,
+											"description": "【选填】互助ID（完全匹配）"
+										},
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "【选填】用户ID（完全匹配）"
+										},
+										{
+											"key": "nick_name",
+											"value": null,
+											"description": "【选填】用户昵称（模糊匹配）"
+										},
+										{
+											"key": "is_follow",
+											"value": null,
+											"description": "【选填】关注用户"
+										},
+										{
+											"key": "content",
+											"value": null,
+											"description": "【选填】内容（模糊匹配）"
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id user_id comment_count like_count top_score create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "审核互助",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\",\n    \"audit_status\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/audit_status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"audit_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "启用/停用 互助",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "官方置顶/取消官方置顶 互助",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"moments_id\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments/top_status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments",
+										"top_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除互助",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"moments_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/moments",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"moments"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "好物",
+					"item": [
+						{
+							"name": "好物列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/good_advice_press?page=1&page_size=10&is_show_like=&sort&status&good_advice_press_id&user_id&nick_name&is_follow&content",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"good_advice_press"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "is_show_like",
+											"value": "",
+											"description": "【选填】是否显示点赞 0：不显示 1：显示"
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id user_id comment_count like_count top_score create_time"
+										},
+										{
+											"key": "status",
+											"value": null,
+											"description": "【选填】状态 不填：全部 0：启用 1：删除/禁用 2：官方置顶"
+										},
+										{
+											"key": "good_advice_press_id",
+											"value": null,
+											"description": "【选填】好物ID（完全匹配）"
+										},
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "【选填】用户ID（完全匹配）"
+										},
+										{
+											"key": "nick_name",
+											"value": null,
+											"description": "【选填】用户昵称（模糊匹配）"
+										},
+										{
+											"key": "is_follow",
+											"value": null,
+											"description": "【选填】关注用户"
+										},
+										{
+											"key": "content",
+											"value": null,
+											"description": "【选填】内容（模糊匹配）"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "启用/停用 好物",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/good_advice_press/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"good_advice_press",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "官方置顶/取消官方置顶 好物",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/good_advice_press/top_status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"good_advice_press",
+										"top_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除好物",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"good_advice_press_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/good_advice_press",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"good_advice_press"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "Banner列表",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/banner?page=1&page_size=10&group=&jump_url&sort",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"banner"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "【必填】页码"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "【必填】页大小"
+										},
+										{
+											"key": "group",
+											"value": "",
+											"description": "【选填】分组"
+										},
+										{
+											"key": "jump_url",
+											"value": null,
+											"description": "【选填】跳转地址 （模糊匹配）"
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "【选填】排序规则 默认：desc,create_time \n【格式】排序方式,字段名称 \n【支持字段】id sort jump_url create_time"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建Banner",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"image_url\": \"\",\n    \"jump_url\": \"\",\n    \"group\": \"\",\n    \"sort\" : \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/banner",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改Banner信息",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"banner_id\": \"\",\n    \"jump_url\": \"\",\n    \"sort\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/banner",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改Banner状态",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"banner_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/banner/status",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"banner",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除Banner",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】管理员令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"banner_id\": \"\"\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/server/v1/banner",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"server",
+										"v1",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "公共接口",
+			"item": [
+				{
+					"name": "上传",
+					"item": [
+						{
+							"name": "上传图片",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "width",
+											"value": "",
+											"description": "【选填】裁剪宽度"
+										},
+										{
+											"key": "height",
+											"value": "",
+											"description": "【选填】裁剪高度"
+										},
+										{
+											"key": "x",
+											"value": "",
+											"description": "【选填】裁剪开始横坐标"
+										},
+										{
+											"key": "y",
+											"value": "",
+											"description": "【选填】裁剪开始纵坐标"
+										},
+										{
+											"key": "image\t",
+											"value": "",
+											"description": "【必填】图片文件"
+										}
+									]
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/common/v1/upload/image",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"common",
+										"v1",
+										"upload",
+										"image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "上传图片（多张图片）",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "images[]",
+											"value": "",
+											"description": "【必填】图片文件",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/common/v1/upload/images",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"common",
+										"v1",
+										"upload",
+										"images"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "上传视频",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"description": "【必填】视频文件",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/common/v1/upload/video",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"common",
+										"v1",
+										"upload",
+										"video"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "上传视频和视频封面",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】令牌",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"description": "【必填】视频文件",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "image\t",
+											"description": "【必填】图片文件",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "width",
+											"value": "",
+											"description": "【选填】裁剪宽度",
+											"type": "text"
+										},
+										{
+											"key": "height",
+											"value": "",
+											"description": "【选填】裁剪高度",
+											"type": "text"
+										},
+										{
+											"key": "x",
+											"value": "",
+											"description": "【选填】裁剪开始横坐标",
+											"type": "text"
+										},
+										{
+											"key": "y",
+											"value": "",
+											"description": "【选填】裁剪开始纵坐标",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/common/v1/upload/video_image",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"common",
+										"v1",
+										"upload",
+										"video_image"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "验证码",
+					"item": [
+						{
+							"name": "发送手机验证码",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobile\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "help.ybmiao.cn/api/common/v1/validate_code",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"common",
+										"v1",
+										"validate_code"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "IM",
+					"item": [
+						{
+							"name": "获取登录IM信息",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"description": "【必填】令牌",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "help.ybmiao.cn/api/common/v1/im/info",
+									"host": [
+										"help",
+										"ybmiao",
+										"cn"
+									],
+									"path": [
+										"api",
+										"common",
+										"v1",
+										"im",
+										"info"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "测试",
+			"item": [
+				{
+					"name": "验证码",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "help.ybmiao.cn/api/test/validate_code",
+							"host": [
+								"help",
+								"ybmiao",
+								"cn"
+							],
+							"path": [
+								"api",
+								"test",
+								"validate_code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IM用户信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

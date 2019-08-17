@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/*
+ * author: 小小游 --- allen
+ * date: 2019.07.30
+ * lastUpdateDate: 2019.08.15
+ * description: sass是一种预编译CSS的快捷工具，能迅速提高我们的开发效率，节省时间和成本等等.
+ */
+
+@import './mobile_reset',
+        './utils';
+
+body {
+    background-color: #f4f5f6;
+}
+
+#index {
+    /** 头部区域内容 start */
+    .myHeader {
+        width: 100%;
+        height: r_750(88);
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        .center {
+            width: r_750(690);
+            height: r_750(88);
+            margin: 0 auto;
+            em {
+                width: r_750(16);
+                height: r_750(59);
+                background: url(../images/return_back.png) no-repeat left r_750(29);
+                background-size: r_750(16) r_750(30);
+                text-indent: -999999em;
+            }
+
+            h1 {
+                font-weight: normal;
+                font-size: r_750(34);
+                line-height: r_750(88);
+                color: #000;
+                text-align: center;
+                margin-left: r_750(296);
+            }
+
+            a {
+                width: r_750(134);
+                height: r_750(56);
+                font-weight: normal;
+                font-size: r_750(30);
+                line-height: r_750(56);
+                color: #fff;
+                background-color: #fe4539;
+                border-radius: r_750(50);
+                margin-top: r_750(16);
+                text-align: center;
+            }
+        }
+    }
+    /** 头部区域内容 end */
+
+    /** 核心区域内容 start */
+    .myContent {
+        margin-top: r_750(36);
+        #myForm {
+            .item_box {
+                input {
+                    display: block;
+                    width: 100%;
+                    height: r_750(108);
+                    font-weight: normal;
+                    font-size: r_750(32);
+                    color: #333;
+                    background-color: #fff;
+                    padding: 0 0 0 r_750(30);
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+
+                    /** 使用webkit内核的浏览器 */
+                    &::-webkit-input-placeholder {
+                        color: #b8b8b8;
+                    }
+
+                    /** Firefox版本4-18 */
+                    &:-moz-placeholder {
+                        color: #b8b8b8;
+                    }
+
+                    /** Firefox版本19+ */
+                    &::-moz-placeholder {
+                        color: #b8b8b8;
+                    }
+
+                    /** IE浏览器 */
+                    &:-ms-input-placeholder {
+                        color: #b8b8b8;
+                    }
+                }
+            }
+        }
+    }
+    /** 核心区域内容 end */
+
+    /** .van-progress {
+        position: relative;
+    } */
+}
