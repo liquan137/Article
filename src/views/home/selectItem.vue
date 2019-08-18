@@ -1,16 +1,18 @@
 <template>
     <div class="triangle" :style="selectStyle">
-        <ul  ref="selectStyle" class="select-ul">
+        <ul ref="selectStyle" class="select-ul">
             <li class="selectItem">
-                <van-button type="default">
+                <van-button type="default" @click="imgFileUpload()">
                     <div class="item-icon">
                         <van-icon name="photo-o" size="1.4rem"></van-icon>
                     </div>
                     <div class="btn_text">图片</div>
                 </van-button>
+                <input class="upload-item-input" type="file" value="" ref="img" @input="changesUpload" multiple
+                       style="display: none">
             </li>
             <li class="selectItem">
-                <van-button type="default">
+                <van-button type="default"  @click="pushWord()">
                     <div class="item-icon">
                         <van-icon name="description" size="1.4rem"></van-icon>
                     </div>
@@ -26,13 +28,16 @@
                 </van-button>
             </li>
         </ul>
+        <canvas ref="myCanvas" style="display: none"></canvas>
     </div>
 
 </template>
 
 <script>
     import Vue from 'vue';
-    import {Button, Icon} from 'vant';
+    import {Button, Icon, Dialog} from 'vant';
+    // 引入编辑页文章模块
+
 
     Vue.use(Button);
     Vue.use(Icon);
@@ -48,7 +53,11 @@
         },
         data() {
             return {
-                refStyle: ''
+                refStyle: '',
+                typeList: ['jpg', 'png', 'jpeg', 'bmp'],
+                list: [],
+                cutH: 300,
+                cutW: 'auto'
             };
         },
         mounted() {
@@ -65,6 +74,97 @@
                     document.getElementsByTagName('head')[0].appendChild(styleElement);
                 }
                 styleElement.appendChild(document.createTextNode(newStyle));
+            },
+            imgFileUpload() {
+                var dom = this.$refs.img.click();
+                // dom.initEvent("click", true, true);
+
+            },
+            changesUpload() {
+                let that = this;
+                var data = this.$refs.img.files;
+                for (var i = 0; i < data.length; i++) {
+                    if ((data[i].size / 1024) < 5024) {
+                        var reader = new FileReader();
+                        reader.readAsDataURL(data[i]);
+                        reader.onload = function (e) {
+                            var arr = e.target.result.split(',');
+                            var mime = arr[0].match(/:(.*?);/)[1];
+                            var imgType = mime.split('/')[1];
+                            if (that.typeList.indexOf(imgType) >= 0) {
+                                that.cutImg({
+                                    base64: e.target.result,
+                                    cutW: that.cutW,
+                                    cutH: that.cutH,
+                                    callback: function (result) {
+                                        that.list.push({base64: result});
+                                        that.$store.state.home.articleModule.content.push({
+                                            order: '1',
+                                            file: {
+                                                type: 'img',
+                                                detail: [
+                                                    result
+                                                ]
+                                            },
+                                            words: '这里是段落描述文字！'
+                                        });
+                                    }
+                                });
+                            } else {
+                                Dialog.alert({
+                                    title: '温馨提示',
+                                    message: '图片格式错误'
+                                }).then(() => {
+                                    // on close
+                                });
+                            }
+                        };
+                    } else {
+                        Dialog.alert({
+                            title: '温馨提示',
+                            message: '图片规格超过限制'
+                        }).then(() => {
+                            // on close
+                        });
+                    }
+                }
+            },
+            cutImg(obj) {
+                if (obj.base64 === '') return obj.callback(result);
+                let that = this;
+                var img = new Image();
+                img.src = obj.base64;
+                img.onload = function () {
+                    var load = this;
+                    var w = load.width, h;
+                    if (obj.cutW !== 'auto') {
+                        w = obj.cutW;
+                        h = load.height / (load.width / obj.cutW);
+                    }
+                    if (obj.cutH !== 'auto') {
+                        h = obj.cutH;
+                        w = load.width / (load.height / obj.cutH);
+                    }
+                    console.log(obj.cutW,obj.cutH)
+                    var quality = 0.7;
+                    var canvas = that.$refs.myCanvas;
+                    var ctx = canvas.getContext('2d');
+                    var anw = document.createAttribute('width');
+                    anw.nodeValue = w;
+                    var anh = document.createAttribute('height');
+                    anh.nodeValue = h;
+                    canvas.setAttributeNode((anw));
+                    canvas.setAttributeNode(anh);
+                    ctx.drawImage(load, 0, 0, w, h);
+                    if (obj.quality && obj.quality <= 1 && obj.quality > 0) {
+                        quality = obj.quality;
+                    }
+                    var result = canvas.toDataURL('image/jpeg', quality);
+                    obj.callback(result);
+                };
+            },
+            pushWord(){
+
             }
 
         }
@@ -89,11 +189,13 @@
         overflow-y: visible;
         box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
     }
-    .triangle{
+
+    .triangle {
         position: absolute;
         width: 100%;
         transition: 0.3s;
     }
+
     .triangle::before {
         content: '';
         position: absolute;

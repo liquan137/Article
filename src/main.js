@@ -11,10 +11,13 @@ import api from './api';
 // 引入一个计算html字体大小的js的文件
 import '../static/js/html-size-calculation';
 
+
 // 将api挂载到vue的原型上
 Vue.prototype.$api = api;
 
 Vue.config.productionTip = false;
+
+// Vue.prototype.$store = store;
 
 /* eslint-disable no-new */
 new Vue ({

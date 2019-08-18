@@ -16,7 +16,7 @@
         components: {SelectItem},
         props: {
             index: {
-                type: Number,
+                type: [Number, String],
                 default: function () {
                     return 0;
                 }
@@ -35,7 +35,7 @@
                     this.selectShow = 'opacity: 0.5;transform: translateY(0) scale(1);';
                     setTimeout(() => {
                         this.selectShow = 'opacity: 0;transform: translateY(15px) scale(.01);';
-                    }, 300);
+                    }, 100);
                     this.selectStatus = false;
                 } else {
                     this.selectShow = 'opacity: 0;transform: translateY(15px) scale(0.01);';
@@ -49,7 +49,7 @@
                     }
                     setTimeout(() => {
                         this.selectShow = 'opacity: 1;transform: translateY(0) scale(1);';
-                    }, 300);
+                    }, 100);
                     this.selectStatus = true;
                 }
             }

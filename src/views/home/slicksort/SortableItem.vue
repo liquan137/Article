@@ -5,10 +5,10 @@
                 <div v-if="item.file.type == 'video'">
                     <van-icon name="video"/>
                 </div>
-                <div v-if="item.file.type == 'img'">img</div>
+                <div v-if="item.file.type == 'img'" class="list-item-img-box"><img :src="item.file.detail[0]" alt=""></div>
             </div>
             <div class="list-content">
-                富强、民主、和谐、爱国、这是一段文字！
+                {{ item.words}}
             </div>
             <div class="list-option">
                 <van-icon name="cross" color="#c6c6c6" @click="handleDelete()"/>
@@ -69,6 +69,16 @@
         font-size: 0.8rem;
         display: inline-block;
         float: left;
+    }
+
+    .list-item-img-box{
+        text-align: center;
+        height: 4.5rem;
+        overflow: hidden;
+    }
+    .list-item-img-box img{
+        height: 100%;
+        width: auto;
     }
 
     .list-item .list-content {

@@ -9,10 +9,10 @@
                     </div>
                 </div>
             </div>
-            <SortItem :item="articleItem.content"></SortItem>
-<!--            <div>-->
-<!--                <SelectFile :index="1"></SelectFile>-->
-<!--            </div>-->
+            <SortItem :item="$store.state.home.articleModule.content"></SortItem>
+            <div v-show="$store.state.home.articleModule.content.length == 0">
+                <SelectFile :index="'last'"></SelectFile>
+            </div>
         </section>
     </div>
 </template>
@@ -32,7 +32,6 @@
     // 引入vant相关控件
     import {Button, Icon} from 'vant';
 
-    import store from '../store';
 
     Vue.use(Button);
     Vue.use(Icon);
@@ -51,7 +50,13 @@
         },
 
         mounted () {
-            console.log(store.state.home.articleModule);
+            console.log(this.$store.state.home.articleModule.content);
+        },
+
+        watch: {
+          title (n,o){
+              this.$store.state.home.articleModule.title = n;
+          }
         },
 
         data() {
