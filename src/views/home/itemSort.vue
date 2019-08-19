@@ -56,8 +56,12 @@
                 for (var i = 0;i<dom.length;i++){
                     dom[i].style.opacity = 1;
                 }
+                console.log(event.newIndex,event.oldIndex);
+                var tempOption = this.$store.state.home.articleModule.content[event.oldIndex];
+                this.$set(this.$store.state.home.articleModule.content, event.oldIndex, this.$store.state.home.articleModule.content[event.newIndex]);
+                this.$set(this.$store.state.home.articleModule.content, event.newIndex, tempOption);
                 this.touch = "touch-action: pan-y;overflow-y: auto;position: absolute;";
-                console.log(this.touch);
+                console.log(this.$store.state.home.articleModule);
             }
 
         }

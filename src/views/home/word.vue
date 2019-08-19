@@ -185,6 +185,8 @@
                 } else {
                     var param = this.$route.params;
                     if (param.status == 'add') {
+                        console.log(this.$store.state.home.articleModule.content)
+                        console.log('位置：',param.index)
                         this.$store.state.home.articleModule.content.splice(Number(param.index) + 1,0,{
                             order: param.index + 1,
                             file: {
@@ -208,7 +210,9 @@
 
                     Toast.success('添加完成');
                     setTimeout(() => {
-                        this.$router.go(-1);
+                        this.$router.push({
+                            name: "Home"
+                        });
                     }, 1000);
                 }
             },

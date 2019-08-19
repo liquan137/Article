@@ -2,7 +2,7 @@
     <div id="index">
         <header class="myHeader">
             <div class="center clearFix">
-                <em class="fl" @click="$router.go(-1)">我是返回按钮</em>
+                <em class="fl" @click="$router.push({name: 'Home' })">我是返回按钮</em>
                 <h1 class="fl">编辑</h1>
                 <a
                     class="fr"

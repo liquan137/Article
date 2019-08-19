@@ -6,8 +6,8 @@
                     <van-icon name="video"/>
                 </div>
                 <div v-if="item.file.type == 'img'" class="list-item-img-box" @click="setImg(item.order)">
-                    <div  style="width: 100%;height: 100%" @click="setImg(item.order)">
-                        <img v-if="item.file.detail[0] != ''" :src="item.file.detail[0]" alt="" >
+                    <div style="width: 100%;height: 100%" @click="setImg(item.order)">
+                        <img v-if="item.file.detail[0] != ''" :src="item.file.detail[0]" alt="">
                     </div>
                 </div>
                 <div v-if="item.file.type == ''" class="list-item-img-box" @click="setImg(item.order)">
@@ -71,12 +71,16 @@
                             that.$store.state.home.articleModule.content.splice(i, 1);
                         }
                     }
+                    // 重置排序
+                    for (var x in content) {
+                        that.$store.state.home.articleModule.content[x].order = x;
+                    }
                 }).catch(() => {
                     // on cancel
                 });
             },
-            setImg(d){
-                this.$router.push({path: '/preview/'+ d.toString()+'/'+'update'});
+            setImg(d) {
+                this.$router.push({path: '/preview/' + d.toString() + '/' + 'update'});
             }
         }
     };
