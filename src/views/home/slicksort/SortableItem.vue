@@ -5,19 +5,27 @@
                 <div v-if="item.file.type == 'video'">
                     <van-icon name="video"/>
                 </div>
-                <div v-if="item.file.type == 'img'" class="list-item-img-box"><img :src="item.file.detail[0]" alt=""></div>
+                <div v-if="item.file.type == 'img'" class="list-item-img-box" @click="setImg(item.order)">
+                    <div  style="width: 100%;height: 100%" @click="setImg(item.order)">
+                        <img v-if="item.file.detail[0] != ''" :src="item.file.detail[0]" alt="" >
+                    </div>
+                </div>
+                <div v-if="item.file.type == ''" class="list-item-img-box" @click="setImg(item.order)">
+
+                    <p style="font-size: 0.75rem">上传图片</p>
+                </div>
             </div>
-            <div class="list-content">
+            <div class="list-content" @click="$router.push({path: '/editor/'+ item.order.toString()+'/'+'update'})">
                 {{ item.words}}
             </div>
             <div class="list-option">
-                <van-icon name="cross" color="#c6c6c6" @click="handleDelete()"/>
+                <van-icon name="cross" color="#c6c6c6" @click="handleDelete(item.order)"/>
                 <van-icon name="exchange" color="#c6c6c6" class="change-order"/>
             </div>
         </div>
-                <div>
-                    <SelectFile></SelectFile>
-                </div>
+        <div>
+            <SelectFile :index="item.order"></SelectFile>
+        </div>
     </div>
 </template>
 
@@ -34,26 +42,41 @@
                 default: function () {
                     return [];
                 }
+            },
+            index: {
+                type: [Number, String],
+                default: function () {
+                    return 0;
+                }
             }
         },
         components: {SelectFile},
         name: "SortableItem",
         created() {
-
+            console.log(this.$store.state.home.articleModule);
         },
         data() {
             return {};
         },
         methods: {
-            handleDelete() {
+            handleDelete(index) {
+                let that = this;
                 Dialog.confirm({
                     title: '温馨提示',
                     message: '确定删除此段？'
                 }).then(() => {
-                    // on confirm
+                    let content = that.$store.state.home.articleModule.content;
+                    for (var i in content) {
+                        if (content[i].order == index) {
+                            that.$store.state.home.articleModule.content.splice(i, 1);
+                        }
+                    }
                 }).catch(() => {
                     // on cancel
                 });
+            },
+            setImg(d){
+                this.$router.push({path: '/preview/'+ d.toString()+'/'+'update'});
             }
         }
     };
@@ -71,12 +94,13 @@
         float: left;
     }
 
-    .list-item-img-box{
+    .list-item-img-box {
         text-align: center;
         height: 4.5rem;
         overflow: hidden;
     }
-    .list-item-img-box img{
+
+    .list-item-img-box img {
         height: 100%;
         width: auto;
     }
@@ -120,6 +144,7 @@
         background: white;
         margin: 0.5rem 0;
         box-shadow: 1px 1px 8px rgba(19, 133, 242, 0.2);
+        transition: 0.2s;
     }
 
     .article-list-box .list-item {
@@ -128,5 +153,9 @@
         background: white;
         margin: 0.5rem 0;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+    }
+
+    .list-item:active {
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
     }
 </style>

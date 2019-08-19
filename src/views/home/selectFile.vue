@@ -3,7 +3,7 @@
         <button class="addBtn" :data-show="selectStatus" @click="handleSelect()">
             添加文字 / 文字 / 视频
         </button>
-        <SelectItem :selectStyle="selectShow"></SelectItem>
+        <SelectItem :selectStyle="selectShow" :index="index"></SelectItem>
     </div>
 </template>
 
@@ -68,5 +68,6 @@
         outline: none;
         text-align: center;
         margin: 0.5466666667rem 0;
+        transition: 0.2s;
     }
 </style>

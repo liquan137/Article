@@ -9,11 +9,12 @@
                     </div>
                 </div>
             </div>
-            <SortItem :item="$store.state.home.articleModule.content"></SortItem>
+            <SortItem :item="$store.state.home.articleModule.content" v-show="$store.state.home.articleModule.content.length != 0"></SortItem>
             <div v-show="$store.state.home.articleModule.content.length == 0">
-                <SelectFile :index="'last'"></SelectFile>
+                <SelectFile :index="0"></SelectFile>
             </div>
         </section>
+
     </div>
 </template>
 
@@ -30,11 +31,12 @@
 
     import Vue from 'vue';
     // 引入vant相关控件
-    import {Button, Icon} from 'vant';
+    import {Button, Icon, Field, Uploader} from 'vant';
 
-
+    Vue.use(Field);
     Vue.use(Button);
     Vue.use(Icon);
+    Vue.use(Uploader);
     export default {
         scrollToTop: true,
         name: "home",
@@ -54,9 +56,12 @@
         },
 
         watch: {
-          title (n,o){
-              this.$store.state.home.articleModule.title = n;
-          }
+            title(n) {
+                this.$store.state.home.articleModule.title = n;
+            },
+            description(n) {
+                this.$store.state.home.articleModule.description = n;
+            }
         },
 
         data() {
@@ -67,7 +72,6 @@
                 selectStatus: true,
                 // 绑定的图片、文字、视频按钮默认的css样式
                 selectShow: 'display: inline-block;',
-                // 模拟编辑好的文章数据
                 articleItem: {
                     title: '王大锤冒险记',
                     description: '这是文章的描述！！！！！！',
@@ -97,7 +101,11 @@
             };
         },
 
-        methods: {}
+        methods: {
+        },
+        activated (){
+
+        }
     };
 </script>
 
@@ -105,9 +113,24 @@
     .item-select-box {
         text-align: center;
     }
-
-
 </style>
 <style lang="css" rel="stylesheet/css">
     @import '../../static/css/index.css';
+</style>
+<style lang="scss">
+    .van-uploader {
+        .van-uploader__wrapper {
+            .van-uploader__preview {
+                .van-uploader__preview-image {
+                    width: 7.5rem;
+                    height: 7.5rem;
+                }
+            }
+
+            .van-uploader__upload {
+                width: 7.5rem;
+                height: 7.5rem;
+            }
+        }
+    }
 </style>
