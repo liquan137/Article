@@ -185,15 +185,18 @@
                 } else {
                     var param = this.$route.params;
                     if (param.status == 'add') {
+                        console.log(param);
                         this.$store.state.home.articleModule.content.splice(Number(param.index) + 1,0,{
                             order: param.index + 1,
                             file: {
                                 type: 'img',
-                                detail: []
+                                detail: [],
+                                original: ''
                             },
                             words: this.fitter(this.content),
                             html: this.content
                         });
+                        console.log(this.$store.state.home.articleModule.content);
                     } else {
                         let content = this.$store.state.home.articleModule.content;
                         for (var i in content) {
@@ -203,12 +206,18 @@
                                 this.$store.state.home.articleModule.content[i].words = this.fitter(this.content);
                             }
                         }
-                        console.log();
+                        console.log(this.$store.state.home.articleModule.content);
                     }
 
                     Toast.success('添加完成');
+                    let content = this.$store.state.home.articleModule.content;
+                    for (var x in content) {
+                        this.$store.state.home.articleModule.content[x].order = x;
+                    }
                     setTimeout(() => {
-                        this.$router.go(-1);
+                        this.$router.push({
+                            name: "Home"
+                        });
                     }, 1000);
                 }
             },
@@ -217,7 +226,9 @@
                     title: '温馨提示',
                     message: '是否放弃编辑？'
                 }).then(() => {
-                    this.$router.go(-1);
+                    this.$router.push({
+                            name: "Home"
+                        });
                 }).catch(() => {
                     // on cancel
                 });

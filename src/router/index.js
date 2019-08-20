@@ -21,7 +21,7 @@ import Editor from "@/views/home/word";
 import Preview from "@/views/home/preview";
 
 // 文章预览页面
-import ArticleView  from "@/views/home/articleView";
+import ArticleView from "@/views/home/articleView";
 
 // 使用路由
 Vue.use ( Router );

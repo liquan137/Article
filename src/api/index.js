@@ -15,10 +15,14 @@ import multiplexUpload from '@/api/banner';
 // 引入发布新文章的测试接口
 import publishGoodThing from '@/api/publish';
 
+// banner多图上传测试接口
+import videoUpload from '@/api/video';
+
 // 导出接口
 export default {
     userList,
     multiplexUpload,
-    publishGoodThing
+    publishGoodThing,
+    videoUpload
     // ……
 };

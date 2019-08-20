@@ -68,9 +68,9 @@ const errorHandle = ( status, other ) => {
 // 创建axios实例
 let instance = axios.create ({
     // 允许携带cookie
-    withCredentials: true
+    withCredentials: true,
     // 过期时间
-    // timeout: 45 * 1000
+    timeout: 45 * 1000
 });
 
 // 设置post请求头
@@ -90,6 +90,8 @@ instance.interceptors.request.use (
         token && ( config.headers.Authorization = token );
         return config; */
         config.headers['Token'] = getQueryString ( 'token' );
+        // 临时使用··············································
+        config.headers['Token'] = 'a9c515bf3ed2c85452dda48b2922a195';
         return config;
     },
     error => Promise.error ( error ) );

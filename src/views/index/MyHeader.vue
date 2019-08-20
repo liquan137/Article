@@ -76,7 +76,8 @@
                 description: '',
                 // 模拟编辑好的文章数据
                 fileImg: [],
-                show: false
+                show: false,
+                coverImg: ''
             };
         },
         // 方法中心
@@ -87,7 +88,55 @@
                 return false;
             },
             afterRead(file) {
+                // 先把封面图片预览先放入数据中，如果上传成功就替换为url
+                this.coverImg = file.content;
+                // 注意，我们这里没有使用form表单提交文件，所以需要用new FormData来进行提交
+                let fd = new FormData();
 
+                // 判断是否是多图上传 多图则循环添加进去
+                if (file && file.length) {
+                    file.forEach(item => {
+                        // 第一个参数字符串跟后端商量确定好的，第二个根据对象属性来找到file
+                        fd.append("images[]", item.file);
+                    });
+                    // 单图上传
+                } else {
+                    fd.append("images[]", file.file);
+                }
+
+                // 设置发送的请求头类型
+                let config = {
+                    "onUploadProgress": ev => {
+                        let completeProgress = Math.round(100 * ev.loaded / ev.total);
+                        // 提交到vuex里面
+                        // this.$store.commit('updateUploadProgress', {
+                        //     "uploadProgress": completeProgress
+                        // });
+                    },
+                    "headers": {
+                        "Content-Type": "multipart/form-data"
+                    }
+                };
+
+                // 请求上传图片接口
+                this.$api.multiplexUpload.getBannerPic(fd, config)
+                    .then(response => {
+                        let res = response.data;
+                        if (res.code == 0) {
+                            let resData = res.data.map((item) => {
+                                item.introduce = '';
+                                return item;
+                            });
+                            // 这里应该把url赋值给当前一个data里的数组变量，存入vuex，共享给预览组件
+                            for ( let i = 0, len = resData.length; i < len; i++ ) {
+                                // 获取实际图片的宽高
+                                this.coverImg = resData[i].url;
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        Toast('网络异常，图片上传失败！');
+                    });
             },
             handleSubmit() {
                 if (!this.$store.state.home.articleModule.title) {
@@ -95,6 +144,9 @@
                     return false;
                 } else if (!this.$store.state.home.articleModule.description) {
                     Toast('请添加文章摘要！');
+                    return false;
+                } else if (!this.$store.state.home.articleModule.coverImg) {
+                    Toast('请添加文章封面图片！');
                     return false;
                 } else if (!this.$store.state.home.articleModule.content.length) {
                     Toast('请至少添加一篇文章才能预览！');
@@ -125,6 +177,9 @@
         watch: {
             description(n) {
                 this.$store.state.home.articleModule.description = n;
+            },
+            coverImg(n) {
+                this.$store.state.home.articleModule.coverImg = n;
             }
         }
     };

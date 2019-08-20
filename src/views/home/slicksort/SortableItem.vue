@@ -2,12 +2,12 @@
     <div>
         <div class="list-item">
             <div class="list-item-img">
-                <div v-if="item.file.type == 'video'">
-                    <van-icon name="video"/>
+                <div v-if="item.file.type == 'video'" class="video">
+                    <van-icon name="play" color="white" size="1.6rem" style="line-height: 4.5rem"/>
                 </div>
                 <div v-if="item.file.type == 'img'" class="list-item-img-box" @click="setImg(item.order)">
-                    <div  style="width: 100%;height: 100%" @click="setImg(item.order)">
-                        <img v-if="item.file.detail[0] != ''" :src="item.file.detail[0]" alt="" >
+                    <div style="width: 100%;height: 100%" @click="setImg(item.order)">
+                        <img v-if="item.file.detail[0] != ''" :src="item.file.detail[0]" alt="">
                     </div>
                 </div>
                 <div v-if="item.file.type == ''" class="list-item-img-box" @click="setImg(item.order)">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div>
-            <SelectFile :index="item.order"></SelectFile>
+            <SelectFile :index="index"></SelectFile>
         </div>
     </div>
 </template>
@@ -53,7 +53,6 @@
         components: {SelectFile},
         name: "SortableItem",
         created() {
-            console.log(this.$store.state.home.articleModule);
         },
         data() {
             return {};
@@ -71,12 +70,16 @@
                             that.$store.state.home.articleModule.content.splice(i, 1);
                         }
                     }
+                    // 重置排序
+                    for (var x in content) {
+                        that.$store.state.home.articleModule.content[x].order = x;
+                    }
                 }).catch(() => {
                     // on cancel
                 });
             },
-            setImg(d){
-                this.$router.push({path: '/preview/'+ d.toString()+'/'+'update'});
+            setImg(d) {
+                this.$router.push({path: '/preview/' + d.toString() + '/' + 'update'});
             }
         }
     };
@@ -92,6 +95,7 @@
         font-size: 0.8rem;
         display: inline-block;
         float: left;
+        overflow: hidden;
     }
 
     .list-item-img-box {
@@ -157,5 +161,9 @@
 
     .list-item:active {
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .video{
+        background: black;
     }
 </style>

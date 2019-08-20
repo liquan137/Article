@@ -9,8 +9,8 @@
                     </div>
                 </div>
             </div>
-            <SortItem :item="$store.state.home.articleModule.content" v-show="$store.state.home.articleModule.content.length != 0"></SortItem>
-            <div v-show="$store.state.home.articleModule.content.length == 0">
+            <SortItem :item="articleItem.content" v-show="articleItem.content.length != 0"></SortItem>
+            <div v-show="articleItem.content.length == 0">
                 <SelectFile :index="0"></SelectFile>
             </div>
         </section>
@@ -53,6 +53,7 @@
 
         mounted () {
             console.log(this.$store.state.home.articleModule.content);
+            this.articleItem = this.$store.state.home.articleModule;
         },
 
         watch: {
@@ -72,39 +73,16 @@
                 selectStatus: true,
                 // 绑定的图片、文字、视频按钮默认的css样式
                 selectShow: 'display: inline-block;',
-                articleItem: {
-                    title: '王大锤冒险记',
-                    description: '这是文章的描述！！！！！！',
-                    content: [
-                        {
-                            order: '1',
-                            file: {
-                                type: 'img',
-                                detail: [
-                                    'file:///C:/Users/Administrator/Desktop/1CG7L5GN7YED9TD%7DIX)C3)U.png'
-                                ]
-                            },
-                            words: '这是本段落的文字描述..............这是本段落的文字描述..............'
-                        },
-                        {
-                            order: '2',
-                            file: {
-                                type: 'video',
-                                detail: [
-                                    'file:///C:/Users/Administrator/Desktop/1CG7L5GN7YED9TD%7DIX)C3)U.png'
-                                ]
-                            },
-                            words: '这是本段落的文字描述..............这是本段落的文字描述..............'
-                        }
-                    ]
-                }
+                articleItem: this.$store.state.home.articleModule
             };
         },
 
         methods: {
-        },
-        activated (){
 
+        },
+        // 开启了路由缓存，所以使用此刷新
+        activated (){
+            this.articleItem = this.$store.state.home.articleModule;
         }
     };
 </script>

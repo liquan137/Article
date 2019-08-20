@@ -2,7 +2,7 @@
     <div id="index">
         <header class="myHeader">
             <div class="center clearFix">
-                <em class="fl" @click="$router.go(-1)">我是返回按钮</em>
+                <em class="fl" @click="$router.push({name: 'Home' })">我是返回按钮</em>
                 <h1 class="fl">编辑</h1>
                 <a
                     class="fr"
@@ -54,7 +54,7 @@
         },
         methods:{
             handleSubmit(){
-                this.$router.go(-1);
+                this.$router.push({name: 'Home'});
             },
             backHistory() {
                 Dialog.confirm({
@@ -83,10 +83,15 @@
                         cutW: that.cutW,
                         cutH: that.cutH,
                         callback: function (result,original) {
+                            that.$store.state.home.articleModule.content[Number(index)].file.original = '';
+                            that.$store.state.home.articleModule.content[Number(index)].file.detail[0] = '';
+                            that.$store.state.home.articleModule.content[Number(index)].file.type = 'img';
+                            that.img = '';
                             that.$store.state.home.articleModule.content[Number(index)].file.original = original;
-                            that.$store.state.home.articleModule.content[Number(index)].file.detail[0] = result;
+                            that.$store.state.home.articleModule.content[Number(index)].file.detail[0] = original;
                             that.$store.state.home.articleModule.content[Number(index)].file.type = 'img';
                             that.img = original;
+                            that.reload();
                         }
                     });
                 } else {
@@ -172,9 +177,26 @@
                     that.$store.state.home.articleModule.content[Number(index)].file.detail[0] = '';
                     that.$store.state.home.articleModule.content[Number(index)].file.type = '';
                     that.img = '';
+                    that.reload();
                 }).catch(() => {
                     // on cancel
                 });
+
+            },
+            // 重载
+            reload() {
+                let that = this;
+                let content = that.$store.state.home.articleModule.content;
+                setTimeout(() => {
+                    that.$store.state.home.articleModule.content = [];
+                    for (var i in content) {
+                        that.$store.state.home.articleModule.content.push(content[i]);
+                    }
+                    for (var x in content) {
+                        that.$store.state.home.articleModule.content[x].order = x;
+                    }
+                }, 200);
+                console.log(that.$store.state.home.articleModule.content);
 
             }
         },

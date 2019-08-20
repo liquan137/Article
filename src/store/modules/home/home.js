@@ -1,7 +1,8 @@
 const module = {
     title: '',
     description: '',
-    content: []
+    content: [],
+    coverImg: ''
 };
 
 
